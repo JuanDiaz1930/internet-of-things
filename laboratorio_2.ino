@@ -32,13 +32,13 @@ void loop() {
   unsigned long timeActual = millis();
   estPulsador = digitalRead(BOTONCITO);
 
-  // Antirrebote correcto
+  
   if (estPulsador == LOW && estAnterior == HIGH && (timeActual - ultRebote > 200)) {
 
     modo++;
     if (modo > 5) modo = 0;
 
-    // Reinicia semáforo al entrar al modo 5
+   
     if (modo == 5) {
       pasoSemaforo = 0;
       timeAnterior = millis();
@@ -53,6 +53,7 @@ void loop() {
 
     case 0:
       apagarTodo();
+      digitalWrite(LED3, HIGH);
       break;
 
     case 1:
